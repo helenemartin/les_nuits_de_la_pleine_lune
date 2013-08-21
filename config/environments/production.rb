@@ -9,16 +9,41 @@ LesNuitsDeLaPleineLune::Application.configure do
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
-  config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
 
   # Generate digests for assets URLs
   config.assets.digest = true
+
+      config.assets.initialize_on_precompile = false
+    config.assets.compile = true
+    config.serve_static_assets = true
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif,
+                                  "fontawesome-webfont.ttf",
+                                 "fontawesome-webfont.eot",
+                                 "fontawesome-webfont.svg",
+                                 "fontawesome-webfont.woff")
+
+
+
+    config.assets.precompile << Proc.new do |path|
+      if path =~ /\.(css|js)\z/
+        full_path = Rails.application.assets.resolve(path).to_path
+        app_assets_path = Rails.root.join('app', 'assets').to_path
+        if full_path.starts_with? app_assets_path
+          puts "including asset: " + full_path
+          true
+        else
+          puts "excluding asset: " + full_path
+          false
+        end
+      else
+        false
+      end
+    end
+
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
