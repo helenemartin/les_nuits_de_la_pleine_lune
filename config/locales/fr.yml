@@ -1,0 +1,29 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+fr:
+  hello: "Bonjour monde"
+  moon_phase: La lune est en phase 
+  
+  moon_phases:
+    new: "nouvelle lune"
+    waxing_crescent: "premier croissant"
+    first_quarter: "premier quartier"
+    waxing_gibbous: "lune gibbeuse croissante"
+    full: "pleine lune"
+    waning_gibbous: "lune gibbeuse croissante"
+    last_quarter: "dernier quartier"
+    waning_crescent: "dernier croissant"
+
+  next_full_moon: Le prochaine pleine lune est dans 
+  last_full_moon: 
+    one: Le dernière pleine lune est passée d' 1 jour
+    other: Le dernière pleine lune est passée de %{count} jours
+
+
+  datetime:
+    distance_in_words:
+      x_days:
+        one: '1 jour'
+        other: '%{count} jours'
+

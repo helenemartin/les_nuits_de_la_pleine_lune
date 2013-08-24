@@ -40,6 +40,26 @@ class Moon
     @epoch
   end
 
+  def previous_full_moon
+     found = false
+
+    #keep looping until found a full moon
+    while not found
+      #try tomorrow
+      @epoch = @epoch - 1.day
+      do_calc
+
+      #is a full moon
+      if phase == :full 
+        found = true
+      end
+    end
+
+    @epoch
+
+
+  end
+
   private
 
   def calc_phase(p)

@@ -2,7 +2,9 @@ LesNuitsDeLaPleineLune::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  resources :home_pages
+  resources :home_pages, only: [:index]
+  resources :locales, only: [:show]
+
   root to: "home_pages#index"
   
   # Sample of regular route:
