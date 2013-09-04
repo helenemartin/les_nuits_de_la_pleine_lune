@@ -1,5 +1,5 @@
 class HomePagesController < ApplicationController
   def index
-  	@moon = Moon.new
+  	@moon = Moon.new 
   end
 end

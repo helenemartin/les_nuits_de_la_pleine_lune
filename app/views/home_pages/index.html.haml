@@ -5,6 +5,22 @@
   The phase of the moon is
   = @moon.phase
 
+  - if @moon.phase == :new 
+    = image_tag "newmoon.jpg"
+  - elsif @moon.phase == :waning_crescent
+    = image_tag "waningcrescent.jpg"
+  - elsif @moon.phase == :waxing_gibbous
+    = image_tag "waxinggibbous.jpg"
+  - elsif @moon.phase == :first_quarter
+    = image_tag "firstquarter.jpg"
+  - elsif @moon.phase == :full
+    = image_tag "fullmoon.jpg"
+  - elsif @moon.phase == :last_quarter
+    = image_tag "lastquarter.jpg"
+  - elsif @moon.phase == :waxing_crescent
+    = image_tag "waxingcrescent.jpg"
+  - elsif @moon.phase == :waning_gibbous
+    = image_tag "waninggibbous.jpg"
 
 %section
   - unless @moon.phase == :full
