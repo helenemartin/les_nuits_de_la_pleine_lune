@@ -1,0 +1,45 @@
+<h1>Bonne nuit</h1>
+
+
+<section class="row">
+  <div class="span4">
+    The phase of the moon is
+    <%= @moon.phase %>
+  </br>
+  <%- unless @moon.phase == :full %>
+    <%= t(:next_full_moon) %>
+    
+    <%= distance_of_time_in_words Time.now, @moon.next_full_moon %>
+
+
+    <br/>
+     
+    <%- days_ago = (Time.now - @moon.previous_full_moon).seconds / 60 / 60 / 24 %>
+    <%= t(:last_full_moon, count: days_ago.to_i) %>
+  <% end %>
+  </div>
+
+  <div class="span8">
+    <%- if @phase == :new %>
+      <%= image_tag "newmoon.jpg"%>
+    <%- elsif @phase == :waning_crescent%>
+      <%= image_tag "waningcrescent.jpg"%>
+    <%- elsif @phase == :waxing_gibbous%>
+      <%= image_tag "waxinggibbous.jpg"%>
+    <%- elsif @phase == :first_quarter%>
+      <%= image_tag "firstquarter.jpg"%>
+    <%- elsif @phase == :full%>
+      <%= image_tag "fullmoon.jpg"%>
+    <%- elsif @phase == :last_quarter%>
+      <%= image_tag "lastquarter.jpg"%>
+    <%- elsif @phase == :waxing_crescent%>
+      <%= image_tag "waxingcrescent.jpg"%>
+    <%- elsif @phase == :waning_gibbous%>
+      <%= image_tag "waninggibbous.jpg"%>
+    <%- end %>
+  </div>
+</section>
+
+<%if @phase == :full %>
+<iframe width="560" height="315" src="//www.youtube.com/embed/ehulHtKfpuM" frameborder="0" allowfullscreen></iframe>
+<% end %>
