@@ -4,6 +4,7 @@ LesNuitsDeLaPleineLune::Application.routes.draw do
 
   resources :home_pages, only: [:index]
   resources :locales, only: [:show]
+  resources :users
 
   root to: "home_pages#index"
   
